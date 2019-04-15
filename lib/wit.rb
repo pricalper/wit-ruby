@@ -104,6 +104,10 @@ class Wit
     req(logger,@access_token, Net::HTTP::Delete, "/entities/#{URI.encode(entity_id)}/values/#{URI.encode(value)}/expressions/#{URI.encode(expression)}")
   end
 
+  def add_samples(payload)
+    req(logger, @access_token, Net::HTTP::Post, "/samples", {}, payload)
+  end
+
   private
 
   def validate_payload(payload)
